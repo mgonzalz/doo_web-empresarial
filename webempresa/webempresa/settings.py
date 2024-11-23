@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "core", # Aplicación de Django: core.
     'services.apps.ServicesConfig', # Aplicación de Django: services.
+    'blog.apps.BlogConfig', # Aplicación de Django: blog.
 ]
 
 MIDDLEWARE = [
