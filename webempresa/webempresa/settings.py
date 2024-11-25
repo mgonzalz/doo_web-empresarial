@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig', # Aplicación de Django: services.
     'blog.apps.BlogConfig', # Aplicación de Django: blog.
     'social.apps.SocialConfig', # Aplicación de Django: social.
+    'pages.apps.PagesConfig', # Aplicación de Django: pages.
 ]
 
 MIDDLEWARE = [
