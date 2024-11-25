@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 		'social.apps.SocialConfig', # Aplicación de Django: social.
 		'pages.apps.PagesConfig', # Aplicación de Django: pages.
 		'ckeditor', # Aplicación de Django: ckeditor sirve para editar texto como si fuera un Word.
+		'contact', # Aplicación de Django: contact.
 ]
 
 MIDDLEWARE = [
