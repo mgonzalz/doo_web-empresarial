@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from .forms import ContactForm
 
 # Create your views here.
@@ -11,4 +12,5 @@ def contact(request):
         email = request.POST.get('email', '')
         content = request.POST.get('content', '')
         # Suponemos que el envío de correo es correcto, si el campo no está presente, se envía una cadena vacía.
+        return redirect(reverse('contact') + "?ok")
     return render(request, "contact/contact.html", {'form': contact_form})
