@@ -1,0 +1,5 @@
+# Ignorar el archivo de configuración de email
+email_settings.json
+
+# Ignorar cualquier otro archivo de configuración JSON sensible
+*.settings.json

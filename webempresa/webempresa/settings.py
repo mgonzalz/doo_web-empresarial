@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
+import json
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -152,9 +153,13 @@ CKEDITOR_CONFIGS = {
 			}
 
 
-# Email settings.
+# Email settings: Must create emain_settings.json file in project root.
 # Looking to send emails in production? Check out our Email API/SMTP product!
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '86861f1f7e3026'
-EMAIL_HOST_PASSWORD = '87bdaa39cc9279'
-EMAIL_PORT = '2525'
+EMAIL_SETTINGS_FILE = os.path.join(BASE_DIR, 'email_settings.json')
+with open(EMAIL_SETTINGS_FILE) as f:
+		email_settings = json.load(f)
+
+EMAIL_HOST = email_settings['EMAIL_HOST']
+EMAIL_HOST_USER = email_settings['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = email_settings['EMAIL_HOST_PASSWORD']
+EMAIL_PORT = email_settings['EMAIL_PORT']
