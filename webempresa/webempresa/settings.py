@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-01#drwse*=fv2llkhhtj=ojb0rv#&#6lorm1##rt3al(-kgov&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -56,6 +56,7 @@ MIDDLEWARE = [
 		"django.contrib.auth.middleware.AuthenticationMiddleware",
 		"django.contrib.messages.middleware.MessageMiddleware",
 		"django.middleware.clickjacking.XFrameOptionsMiddleware",
+		'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = "webempresa.urls"
@@ -78,7 +79,7 @@ TEMPLATES = [
 		},
 ]
 
-WSGI_APPLICATION = "webempresa.wsgi.application"
+WSGI_APPLICATION = "webempresa.wsgi.app"
 
 
 # Database
@@ -127,6 +128,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -155,11 +160,33 @@ CKEDITOR_CONFIGS = {
 
 # Email settings: Must create emain_settings.json file in project root.
 # Looking to send emails in production? Check out our Email API/SMTP product!
-EMAIL_SETTINGS_FILE = os.path.join(BASE_DIR, 'email_settings.json')
-with open(EMAIL_SETTINGS_FILE) as f:
-		email_settings = json.load(f)
 
-EMAIL_HOST = email_settings['EMAIL_HOST']
-EMAIL_HOST_USER = email_settings['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = email_settings['EMAIL_HOST_PASSWORD']
-EMAIL_PORT = email_settings['EMAIL_PORT']
+
+
+'''
+Esto sirve para el local, si se tiene el archivo email_settings.json
+en la raíz del proyecto. Se ha ocultado por seguridad.
+'''
+
+EMAIL_SETTINGS_FILE = os.path.join(BASE_DIR, 'email_settings.json')
+# Verifica si el archivo existe.
+
+if os.path.exists(EMAIL_SETTINGS_FILE):
+	with open(EMAIL_SETTINGS_FILE) as f:
+			email_settings = json.load(f)
+
+	EMAIL_HOST = email_settings['EMAIL_HOST']
+	EMAIL_HOST_USER = email_settings['EMAIL_HOST_USER']
+	EMAIL_HOST_PASSWORD = email_settings['EMAIL_HOST_PASSWORD']
+	EMAIL_PORT = email_settings['EMAIL_PORT']
+
+else:
+	# En Vercel se han definido las variables de entorno.
+	EMAIL_HOST = os.getenv('EMAIL_HOST')
+	EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+	EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+	EMAIL_PORT = os.getenv('EMAIL_PORT')
+
+# Verifica si todas las variables están definidas
+if not all([EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT]):
+    raise ValueError("Faltan variables de entorno necesarias para la configuración de correo")
