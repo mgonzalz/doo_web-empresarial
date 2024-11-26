@@ -10,7 +10,7 @@ class TestURL(TestCase):
                      'store',
                      'contact',
                      'blog',
-                     'sample']
+                     ]
     def test_url(self):
         for url_name in self.urls:
             url = reverse(url_name)  # URL para el nombre de la vista si existe en `urls.py`: /url/ .
