@@ -1,5 +1,6 @@
-# Ignorar el archivo de configuración de email
+# Ignorar el archivo de configuración de email.
+## Para el despliegue de la aplicación se han definido estas variables como ENVIROMENTAL VARIABLES.
 email_settings.json
 
-# Ignorar cualquier otro archivo de configuración JSON sensible
+# Ignorar cualquier otro archivo de configuración JSON sensible.
 *.settings.json
