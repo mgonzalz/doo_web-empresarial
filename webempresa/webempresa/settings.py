@@ -158,10 +158,8 @@ CKEDITOR_CONFIGS = {
 			}
 
 
-# Email settings: Must create emain_settings.json file in project root.
-# Looking to send emails in production? Check out our Email API/SMTP product!
 
-
+# Email settings: Looking to send emails in production? Check out our Email API/SMTP product!
 
 '''
 Esto sirve para el local, si se tiene el archivo email_settings.json
@@ -169,8 +167,8 @@ en la raíz del proyecto. Se ha ocultado por seguridad.
 '''
 
 EMAIL_SETTINGS_FILE = os.path.join(BASE_DIR, 'email_settings.json')
-# Verifica si el archivo existe.
 
+# Verifica si el archivo existe.
 if os.path.exists(EMAIL_SETTINGS_FILE):
 	with open(EMAIL_SETTINGS_FILE) as f:
 			email_settings = json.load(f)
@@ -181,7 +179,7 @@ if os.path.exists(EMAIL_SETTINGS_FILE):
 	EMAIL_PORT = email_settings['EMAIL_PORT']
 
 else:
-	# En Vercel se han definido las variables de entorno.
+	# En Vercel y Github Actions se han definido las variables de entorno.
 	EMAIL_HOST = os.getenv('EMAIL_HOST')
 	EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 	EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
