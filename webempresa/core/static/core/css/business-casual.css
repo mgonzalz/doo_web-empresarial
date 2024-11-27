@@ -1,6 +1,6 @@
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/bg.jpg");
+  background: url("../img/bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -41,6 +41,7 @@ p {
   font-size: 5rem;
   font-weight: 100;
   line-height: 4rem;
+  color: #333333;
 }
 
 .page-section {
@@ -80,12 +81,12 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(47, 23, 15, 0.9);
+  background-color: #1B305B;
   font-family: 'Raleway';
 }
 
 #mainNav .navbar-brand {
-  color: #e6a756;
+  color: whitesmoke;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -94,7 +95,7 @@ p {
 }
 
 #mainNav .navbar-nav .nav-item.active .nav-link {
-  color: #e6a756;
+  color: whitesmoke;
 }
 
 @media (min-width: 992px) {
@@ -105,7 +106,7 @@ p {
     color: rgba(255, 255, 255, 0.4);
   }
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
-    color: #e6a756;
+    color: whitesmoke;
   }
 }
 
@@ -150,7 +151,7 @@ p {
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: rgba(230, 167, 86, 0.9);
+  background-color: #1B305B;
 }
 
 .cta .cta-inner {
@@ -214,7 +215,7 @@ p {
 }
 
 .list-hours .list-hours-item {
-  border-bottom: 1px solid rgba(230, 167, 86, 0.5);
+  border-bottom: 1px solid #14264a;
   padding-bottom: .25rem;
   margin-bottom: 1rem;
   font-style: italic;
@@ -222,7 +223,7 @@ p {
 
 .list-hours .list-hours-item.today {
   font-weight: bold;
-  color: #e6a756;
+  color: #14264a;
 }
 
 @media (min-width: 992px) {
@@ -237,29 +238,29 @@ p {
 }
 
 .footer {
-  background-color: rgba(47, 23, 15, 0.9);
+  background-color:  #1B305B;
 }
 
 .text-primary {
-  color: #e6a756 !important;
+  color: #1B305B !important;
 }
 
 .bg-primary {
-  background-color: #e6a756 !important;
+  background-color: #14264a !important;
 }
 
 .btn {
-  box-shadow: 0px 3px 3px 0px rgba(33, 37, 41, 0.1);
+  box-shadow: 0px 3px 3px 0px rgba(30, 32, 35, 0.509);
 }
 
 .btn-primary {
-  background-color: #e6a756;
-  border-color: #e6a756;
+  background-color: #14264a;
+  border-color: #14264a;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #df902a;
-  border-color: #df902a;
+  background-color: #1B305B;
+  border-color: #1B305B;
 }
 
 .font-weight-light {
@@ -268,6 +269,7 @@ p {
 
 .mbtm{
   padding-top: 5rem;
+  color: rgba(245, 245, 245, 0.564);
 }
 
 .mbt{
@@ -276,15 +278,16 @@ p {
 
 .mbt1{
   padding-top: 1.25rem;
+  color: rgba(245, 245, 245, 0.564);
 }
 
 a.link{
-  color: #df902a;
+  color: whitesmoke;
 }
 
 a.link:hover{
   text-decoration: none;
-  color: #e6a756 !important;
+  color: rgba(245, 245, 245, 0.683) !important;
 }
 
 .section-content{
