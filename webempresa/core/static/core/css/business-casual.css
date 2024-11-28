@@ -25,6 +25,7 @@ h6 {
 
 p {
   line-height: 1.75;
+  color: #333333;
 }
 
 .text-faded {
@@ -309,4 +310,8 @@ ul.errorlist{
   padding-top: .75rem;
   font-style: italic;
   color: red;
+}
+
+li{
+  color: #333333;
 }
