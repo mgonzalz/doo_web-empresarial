@@ -296,7 +296,7 @@ a.link{
 
 a.link:hover{
   text-decoration: none;
-  color: rgba(245, 245, 245, 0.683) !important;
+  color: rgba(245, 245, 245, 0.683);
 }
 
 .section-content{

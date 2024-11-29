@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.timezone import now
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Category(models.Model): #Relación de muchos a muchos, seleccionar una o varias categorías -  Relación ManyToMany
@@ -15,7 +16,7 @@ class Category(models.Model): #Relación de muchos a muchos, seleccionar una o v
 
 class Post(models.Model):
     title = models.CharField(max_length=200, verbose_name="Título")
-    content = models.TextField(verbose_name="Contenido")
+    content = RichTextField(verbose_name="Contenido")
     published = models.DateTimeField(default=now, verbose_name="Fecha de publicación")
     image = models.ImageField(upload_to="blog", null=True, blank=True, verbose_name="Imagen")
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Autor") # Si se borra el usuario, se borran todas sus entradas: CASCADE - Relación ForeignKey
